@@ -4,6 +4,11 @@
     <title>会话_</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/dialogs.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/chat.js"></script>
 </head>
@@ -13,7 +18,7 @@
     <div class="abs cover pnl">
         <div class="top pnl-head"></div>
         <div class="abs cover pnl-body" id="pnlBody">
-            <div class="abs right pnl-right">
+            <div class="abs cover pnl-left ">
                 <div class="slider-container hide"></div>
                 <div class="pnl-right-content">
                     <div class="input-group">
@@ -44,28 +49,12 @@
                                         <span class="dialog__last_message_date j-dialog__last_message_date">
                                             15:26
                                         </span>
-                                        <span class="dialog_unread_counter j-dialog_unread_counter hidden">
-                                        </span>
+                                        <!--<span class="dialog_unread_counter j-dialog_unread_counter hidden"></span>-->
+                                        <span class="dialog_unread_counter j-dialog_unread_counter">4</span>
                                     </span>
                                 </a>
                             </li>
 
-                            <li class="list-group-item">
-                                <span class="badge">13</span>
-                                <a/>
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge">3</span>
-                                用户2
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge">23</span>
-                                用户3
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge">130</span>
-                                用户4
-                            </li>
                             <!-- @{
                              List<string> list = ViewData["FAQ"] as List<string>;
                              for(int i = 0;i < list.Count;i++)
@@ -75,14 +64,9 @@
                              }-->
                         </ul>
                     </div>
-                    <div class="pnl-rel" style="display: none;">
-                        <ul class="rel-list unselect" id="rels">
-                            <li class="rel-item">这里是相关问题</li>
-                        </ul>
-                    </div>
                 </div>
             </div>
-            <div class="abs cover pnl-left ">
+            <div class="abs right pnl-right">
                 <div class="abs cover pnl-msgs scroll" id="show">
                     <div class="msg min time" id="histStart">加载历史消息</div>
                     <div class="pnl-list" id="hists">
@@ -124,6 +108,7 @@
                     <div class="pnl-support" id="copyright"><a href="#"></a></div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

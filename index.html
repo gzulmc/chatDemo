@@ -16,21 +16,14 @@
     <div class="dashboard">
         <div class="sidebar j-sidebar">
             <div class="sidebar__inner">
-                <!--<div class="input-group sidebar__header">
-                    <div class="input-icon-group">
-                        <input type="text" class="form-control fc-clear" placeholder="请输入用户ID搜索"/>
-                        <span id="scan" data-role="md" class="md md-center-focus-weak fa-lg input-icon input-icon-md" style="display:inline"></span>
-                    </div>
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" type="button">搜索</button>
-                    </span>
-                </div>-->
                 <div class="input-group">
-                    <input type="text" class="form-control input-group-sm" placeholder="请输入用户ID搜索"><span class="input-group-addon btn btn-primary">搜索</span>
+                    <input type="text" class="form-control input-group-sm" placeholder="请输入用户ID搜索"><span
+                        class="input-group-addon btn btn-primary">搜索</span>
                 </div>
                 <div class="sidebar__content">
                     <ul class="sidebar__dilog_list j-sidebar__dilog_list full">
-                        <li class="dialog__item j-dialog__item selected" id="5ca289caca8bf40e091a8c01" data-name="qingfeng">
+                        <li class="dialog__item j-dialog__item selected" id="5ca289caca8bf40e091a8c01"
+                            data-name="qingfeng">
                             <a class="dialog__item_link" href="#!/dialog/5ca289caca8bf40e091a8c01">
                                 <span class="dialog__avatar m-user__img_10 m-type_group">
                                         <i class="material-icons">supervisor_account</i>
@@ -39,9 +32,10 @@
                                     <span class="dialog__name">qingfeng</span>
                                     <span class="dialog__last_message j-dialog__last_message ">哈哈哈</span>
                                 </span>
-                                    <span class="dialog_additional_info">
+                                <span class="dialog_additional_info">
                                         <span class="dialog__last_message_date j-dialog__last_message_date">15:26</span>
-                                        <span class="dialog_unread_counter j-dialog_unread_counter hidden">
+                                        <!--<span class="dialog_unread_counter j-dialog_unread_counter hidden">-->
+                                        <span class="dialog_unread_counter j-dialog_unread_counter ">5</span>
                                     </span>
                                 </span>
                             </a>
@@ -161,8 +155,8 @@
                     <div class="message__actions">
                         <div class="attachments_preview j-attachments_preview"></div>
                         <!--<label for="attach_btn" class="attach_btn">-->
-                            <!--<i class="material-icons">attachment</i>-->
-                            <!--<input type="file" id="attach_btn" name="attach_file" class="attach_input" accept="image/*">-->
+                        <!--<i class="material-icons">attachment</i>-->
+                        <!--<input type="file" id="attach_btn" name="attach_file" class="attach_input" accept="image/*">-->
                         <!--</label>-->
                         <button class="send_btn">send</button>
                     </div>
@@ -187,13 +181,17 @@
                 <div class="sidebar__content">
                     <ul class="sidebar__tabs">
                         <li class="sidebar__tab">
-                            <a href="#" class="sidebar__tab_link j-sidebar__tab_link <% tabName === "chat" ? print('active') : '' %>" data-type="chat">chats</a>
+                            <a href="#" class="sidebar__tab_link j-sidebar__tab_link <% tabName === " chat" ?
+                            print('active') : '' %>" data-type="chat">chats</a>
                         </li>
                         <li class="sidebar__tab">
-                            <a href="#" class="sidebar__tab_link j-sidebar__tab_link <% tabName === "public" ? print('active') : '' %>" data-type="public">public chats</a>
+                            <a href="#" class="sidebar__tab_link j-sidebar__tab_link <% tabName === " public" ?
+                            print('active') : '' %>" data-type="public">public chats</a>
                         </li>
                         <li class="sidebar__tab m-sidebar__tab_new">
-                            <a href="#!/dialog/create" class="sidebar__tab_link j-sidebar__create_dialog m-sidebar__tab_link_new" data-type="create">
+                            <a href="#!/dialog/create"
+                               class="sidebar__tab_link j-sidebar__create_dialog m-sidebar__tab_link_new"
+                               data-type="create">
                                 <i class="material-icons">add_circle_outline</i>
                             </a>
                         </li>
@@ -223,7 +221,7 @@
 <script type="text/template" id="tpl_userConversations">
     <li class="dialog__item j-dialog__item" id="<%= dialog._id %>" data-name="<%- dialog.name %>">
         <a class="dialog__item_link" href="#!/dialog/<%= dialog._id %>">
-                <span class="dialog__avatar m-user__img_<%= dialog.color %> m-type_<%= dialog.type === 2 ? 'group' : 'chat' %>" >
+                <span class="dialog__avatar m-user__img_<%= dialog.color %> m-type_<%= dialog.type === 2 ? 'group' : 'chat' %>">
                     <% if(dialog.type === 2) { %>
                         <i class="material-icons">supervisor_account</i>
                     <% } else { %>
@@ -251,10 +249,12 @@
         <button class="open_sidebar j-open_sidebar"></button>
         <h1 class="dialog__title j-dialog__title"><%- title %></h1>
         <div class="action_links">
-            <a href="#!/dialog/<%- _id %>/edit" class="add_to_dialog j-add_to_dialog <% type !== 2 ? print('hidden') : ''%>">
+            <a href="#!/dialog/<%- _id %>/edit"
+               class="add_to_dialog j-add_to_dialog <% type !== 2 ? print('hidden') : ''%>">
                 <i class="material-icons">person_add</i>
             </a>
-            <a href="#" class="quit_fom_dialog_link j-quit_fom_dialog_link <% type === 1 ? print('hidden') : ''%>" data-dialog="<%- _id %>">
+            <a href="#" class="quit_fom_dialog_link j-quit_fom_dialog_link <% type === 1 ? print('hidden') : ''%>"
+               data-dialog="<%- _id %>">
                 <i class="material-icons">delete</i>
             </a>
         </div>
@@ -283,7 +283,8 @@
             <i class="material-icons">arrow_back</i>
         </a>
         <form action="#" name="update_chat_name" class="update_chat_name_form">
-            <input type="text" name="update_chat__title" class="update_chat__title_input j-update_chat__title_input" value="<%- title %>" disabled>
+            <input type="text" name="update_chat__title" class="update_chat__title_input j-update_chat__title_input"
+                   value="<%- title %>" disabled>
             <button type="button" class="update_chat__title_button j-update_chat__title_button">
                 <i class="material-icons m-user_icon">create</i>
             </button>
@@ -291,29 +292,20 @@
     </div>
     <div class="notifications j-notifications hidden"></div>
     <div class="content__inner j-content__inner">
-        <p class="update__chat__description"><span class="update__chat_counter j-update__chat_counter">0</span>&nbsp;user selected:</p>
+        <p class="update__chat__description"><span class="update__chat_counter j-update__chat_counter">0</span>&nbsp;user
+            selected:</p>
         <div class="update_chat__user_list j-update_chat__user_list">
         </div>
         <form action="" name="update_dialog" class="dialog_form m_dialog_form_update j-update_dialog_form">
-            <button type="button" class="btn m-update_dialog_btn_cancel j-update_dialog_btn_cancel" name="update_dialog_cancel">cancel</button>
-            <button class="btn m-update_dialog_btn j-update_dialog_btn"  type="submit" name="update_dialog_submit" disabled>add member</button>
+            <button type="button" class="btn m-update_dialog_btn_cancel j-update_dialog_btn_cancel"
+                    name="update_dialog_cancel">cancel
+            </button>
+            <button class="btn m-update_dialog_btn j-update_dialog_btn" type="submit" name="update_dialog_submit"
+                    disabled>add member
+            </button>
         </form>
     </div>
 </script>
-
-<!--<script type="text/template" id="tpl_editChatUser">
-    <div class="user__item <% selected ? print('disabled selected') : ''%>" id="<%= id %>">
-            <span class="user__avatar m-user__img_<%= color %>">
-                <i class="material-icons m-user_icon">account_circle</i>
-            </span>
-        <div class="user__details">
-            <p class="user__name"><%= name %></p>
-            <% if (last_request_at) { %>
-            <p class="user__last_seen"><%= last_request_at %></p>
-            <% } %>
-        </div>
-    </div>
-</script>-->
 
 <script type="text/template" id="tpl_message">
     <div class="message__wrap" id="<%= message.id %>" data-status="<%= message.status %>">
@@ -322,7 +314,8 @@
             </span>
         <div class="message__content">
             <div class="message__sender_and_status">
-                <p class="message__sender_name"><%- sender ? sender.name : 'unknown user (' + message.sender_id + ')' %></p>
+                <p class="message__sender_name"><%- sender ? sender.name : 'unknown user (' + message.sender_id + ')'
+                    %></p>
                 <p class="message__status j-message__status"><%= message.status %></p>
             </div>
             <div class="message__text_and_date">
@@ -428,16 +421,10 @@
     </div>
 </script>
 
-<!--<script src="js/config.js" defer=""></script>-->
-<!--<script src="js/user.js" defer=""></script>-->
 <script src="js/dialog.js" defer=""></script>
 <script src="js/message.js" defer=""></script>
 <script src="js/listeners.js" defer=""></script>
 <script src="js/helpers.js" defer=""></script>
-<!--<script src="js/app.js" defer=""></script>-->
-<!--<script src="js/login.js" defer=""></script>-->
 <script src="js/route.js" defer=""></script>
-
-
 </body>
 </html>
