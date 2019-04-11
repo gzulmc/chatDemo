@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="css/dialogs.css">
-    <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -17,372 +16,55 @@
     <div class="dashboard">
         <div class="sidebar j-sidebar">
             <div class="sidebar__inner">
-                <div class="sidebar__header">
-                    <div class="dashboard__status_wrap">
-                        <h2 class="dashboard__title"></h2>
-                        <p class="dashboard__status j-dashboard_status">
-                            Logged in as lemma
-                        </p>
+                <!--<div class="input-group sidebar__header">
+                    <div class="input-icon-group">
+                        <input type="text" class="form-control fc-clear" placeholder="请输入用户ID搜索"/>
+                        <span id="scan" data-role="md" class="md md-center-focus-weak fa-lg input-icon input-icon-md" style="display:inline"></span>
                     </div>
-                    <a href="#" class="logout j-logout">logout</a>
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button">搜索</button>
+                    </span>
+                </div>-->
+                <div class="input-group">
+                    <input type="text" class="form-control input-group-sm" placeholder="请输入用户ID搜索"><span class="input-group-addon btn btn-primary">搜索</span>
                 </div>
                 <div class="sidebar__content">
-                    <ul class="sidebar__tabs">
-                        <li class="sidebar__tab">
-                            <a href="#" class="sidebar__tab_link j-sidebar__tab_link active" data-type="chat">chats</a>
+                    <ul class="sidebar__dilog_list j-sidebar__dilog_list full">
+                        <li class="dialog__item j-dialog__item selected" id="5ca289caca8bf40e091a8c01" data-name="qingfeng">
+                            <a class="dialog__item_link" href="#!/dialog/5ca289caca8bf40e091a8c01">
+                                <span class="dialog__avatar m-user__img_10 m-type_group">
+                                        <i class="material-icons">supervisor_account</i>
+                                </span>
+                                <span class="dialog__info">
+                                    <span class="dialog__name">qingfeng</span>
+                                    <span class="dialog__last_message j-dialog__last_message ">哈哈哈</span>
+                                </span>
+                                    <span class="dialog_additional_info">
+                                        <span class="dialog__last_message_date j-dialog__last_message_date">15:26</span>
+                                        <span class="dialog_unread_counter j-dialog_unread_counter hidden">
+                                    </span>
+                                </span>
+                            </a>
                         </li>
-                        <li class="sidebar__tab">
-                            <a href="#" class="sidebar__tab_link j-sidebar__tab_link" data-type="public">public chats</a>
-                        </li>
-                        <li class="sidebar__tab m-sidebar__tab_new">
-                            <a href="#!/dialog/create" class="sidebar__tab_link j-sidebar__create_dialog m-sidebar__tab_link_new" data-type="create">
-                                <i class="material-icons">add_circle_outline</i>
+
+                        <li class="dialog__item j-dialog__item" id="5bdec6baca8bf472ea0a8b16" data-name="tor">
+                            <a class="dialog__item_link" href="#!/dialog/5bdec6baca8bf472ea0a8b16">
+                                <span class="dialog__avatar m-user__img_2 m-type_group">
+                                    <i class="material-icons">supervisor_account</i>
+                                </span>
+                                <span class="dialog__info">
+                                    <span class="dialog__name">tor, jaila</span>
+                                    <span class="dialog__last_message j-dialog__last_message ">tor left the chat.</span>
+                                </span>
+                                <span class="dialog_additional_info">
+                                    <span class="dialog__last_message_date j-dialog__last_message_date">
+                                        04:23
+                                    </span>
+                                    <span class="dialog_unread_counter j-dialog_unread_counter hidden"></span>
+                                </span>
                             </a>
                         </li>
                     </ul>
-                    <ul class="sidebar__dilog_list j-sidebar__dilog_list full"><li class="dialog__item j-dialog__item selected" id="5ca289caca8bf40e091a8c01" data-name="qingfeng">
-                        <a class="dialog__item_link" href="#!/dialog/5ca289caca8bf40e091a8c01">
-                <span class="dialog__avatar m-user__img_10 m-type_group">
-
-                        <i class="material-icons">supervisor_account</i>
-
-                </span>
-                            <span class="dialog__info">
-                    <span class="dialog__name">qingfeng</span>
-                    <span class="dialog__last_message j-dialog__last_message ">哈哈哈</span>
-                </span>
-                            <span class="dialog_additional_info">
-                    <span class="dialog__last_message_date j-dialog__last_message_date">
-                        15:26
-                    </span>
-                    <span class="dialog_unread_counter j-dialog_unread_counter hidden">
-
-                    </span>
-                </span>
-                        </a>
-                    </li><li class="dialog__item j-dialog__item" id="5c76b8d2ca8bf453f64abf6b" data-name="lemma, jaila">
-                        <a class="dialog__item_link" href="#!/dialog/5c76b8d2ca8bf453f64abf6b">
-                <span class="dialog__avatar m-user__img_4 m-type_group">
-
-                        <i class="material-icons">supervisor_account</i>
-
-                </span>
-                            <span class="dialog__info">
-                    <span class="dialog__name">lemma, jaila</span>
-                    <span class="dialog__last_message j-dialog__last_message ">sdfjlsdj</span>
-                </span>
-                            <span class="dialog_additional_info">
-                    <span class="dialog__last_message_date j-dialog__last_message_date">
-                        15:24
-                    </span>
-                    <span class="dialog_unread_counter j-dialog_unread_counter hidden">
-
-                    </span>
-                </span>
-                        </a>
-                    </li><li class="dialog__item j-dialog__item" id="5c98b513ca8bf429ae1a8a50" data-name="tor">
-                        <a class="dialog__item_link" href="#!/dialog/5c98b513ca8bf429ae1a8a50">
-                <span class="dialog__avatar m-user__img_8 m-type_chat">
-
-                        <i class="material-icons">account_circle</i>
-
-                </span>
-                            <span class="dialog__info">
-                    <span class="dialog__name">tor</span>
-                    <span class="dialog__last_message j-dialog__last_message ">This is pretty fast</span>
-                </span>
-                            <span class="dialog_additional_info">
-                    <span class="dialog__last_message_date j-dialog__last_message_date">
-                        05:59
-                    </span>
-                    <span class="dialog_unread_counter j-dialog_unread_counter hidden">
-
-                    </span>
-                </span>
-                        </a>
-                    </li><li class="dialog__item j-dialog__item" id="5c320f8acd79667714330a2c" data-name="toe">
-                        <a class="dialog__item_link" href="#!/dialog/5c320f8acd79667714330a2c">
-                <span class="dialog__avatar m-user__img_2 m-type_chat">
-
-                        <i class="material-icons">account_circle</i>
-
-                </span>
-                            <span class="dialog__info">
-                    <span class="dialog__name">toe</span>
-                    <span class="dialog__last_message j-dialog__last_message ">Hi Men</span>
-                </span>
-                            <span class="dialog_additional_info">
-                    <span class="dialog__last_message_date j-dialog__last_message_date">
-                        18:55
-                    </span>
-                    <span class="dialog_unread_counter j-dialog_unread_counter hidden">
-
-                    </span>
-                </span>
-                        </a>
-                    </li><li class="dialog__item j-dialog__item" id="5c552764ca8bf403c33e6736" data-name="jaila">
-                        <a class="dialog__item_link" href="#!/dialog/5c552764ca8bf403c33e6736">
-                <span class="dialog__avatar m-user__img_8 m-type_chat">
-
-                        <i class="material-icons">account_circle</i>
-
-                </span>
-                            <span class="dialog__info">
-                    <span class="dialog__name">jaila</span>
-                    <span class="dialog__last_message j-dialog__last_message ">dsssdsd</span>
-                </span>
-                            <span class="dialog_additional_info">
-                    <span class="dialog__last_message_date j-dialog__last_message_date">
-                        02:15
-                    </span>
-                    <span class="dialog_unread_counter j-dialog_unread_counter hidden">
-
-                    </span>
-                </span>
-                        </a>
-                    </li><li class="dialog__item j-dialog__item" id="5c5396b7ca8bf403c33e5b25" data-name="lemma, jaila, toe, axis">
-                        <a class="dialog__item_link" href="#!/dialog/5c5396b7ca8bf403c33e5b25">
-                <span class="dialog__avatar m-user__img_2 m-type_group">
-
-                        <i class="material-icons">supervisor_account</i>
-
-                </span>
-                            <span class="dialog__info">
-                    <span class="dialog__name">lemma, jaila, toe, axis</span>
-                    <span class="dialog__last_message j-dialog__last_message ">ewe
-
-weqwe</span>
-                </span>
-                            <span class="dialog_additional_info">
-                    <span class="dialog__last_message_date j-dialog__last_message_date">
-                        22:48
-                    </span>
-                    <span class="dialog_unread_counter j-dialog_unread_counter hidden">
-
-                    </span>
-                </span>
-                        </a>
-                    </li><li class="dialog__item j-dialog__item" id="5c50b6daca8bf403c33e433a" data-name="lemma, jaila, toe, axis">
-                        <a class="dialog__item_link" href="#!/dialog/5c50b6daca8bf403c33e433a">
-                <span class="dialog__avatar m-user__img_1 m-type_group">
-
-                        <i class="material-icons">supervisor_account</i>
-
-                </span>
-                            <span class="dialog__info">
-                    <span class="dialog__name">lemma, jaila, toe, axis</span>
-                    <span class="dialog__last_message j-dialog__last_message ">axis left the chat.</span>
-                </span>
-                            <span class="dialog_additional_info">
-                    <span class="dialog__last_message_date j-dialog__last_message_date">
-                        01:16
-                    </span>
-                    <span class="dialog_unread_counter j-dialog_unread_counter hidden">
-
-                    </span>
-                </span>
-                        </a>
-                    </li><li class="dialog__item j-dialog__item" id="5c5aa983ca8bf4565b3e6c69" data-name="axis">
-                        <a class="dialog__item_link" href="#!/dialog/5c5aa983ca8bf4565b3e6c69">
-                <span class="dialog__avatar m-user__img_7 m-type_chat">
-
-                        <i class="material-icons">account_circle</i>
-
-                </span>
-                            <span class="dialog__info">
-                    <span class="dialog__name">axis</span>
-                    <span class="dialog__last_message j-dialog__last_message attachment">Attachment</span>
-                </span>
-                            <span class="dialog_additional_info">
-                    <span class="dialog__last_message_date j-dialog__last_message_date">
-                        01:16
-                    </span>
-                    <span class="dialog_unread_counter j-dialog_unread_counter hidden">
-
-                    </span>
-                </span>
-                        </a>
-                    </li><li class="dialog__item j-dialog__item" id="5c76b8b7ca8bf453f64abf67" data-name="lemma, jaila, toe, axis">
-                        <a class="dialog__item_link" href="#!/dialog/5c76b8b7ca8bf453f64abf67">
-                <span class="dialog__avatar m-user__img_10 m-type_group">
-
-                        <i class="material-icons">supervisor_account</i>
-
-                </span>
-                            <span class="dialog__info">
-                    <span class="dialog__name">lemma, jaila, toe, axis</span>
-                    <span class="dialog__last_message j-dialog__last_message ">tor created new dialog with: lemma, tor, jaila, toe, axis</span>
-                </span>
-                            <span class="dialog_additional_info">
-                    <span class="dialog__last_message_date j-dialog__last_message_date">
-                        00:20
-                    </span>
-                    <span class="dialog_unread_counter j-dialog_unread_counter hidden">
-
-                    </span>
-                </span>
-                        </a>
-                    </li><li class="dialog__item j-dialog__item" id="5c76b8b2ca8bf453f64abf66" data-name="lemma, jaila, toe, axis">
-                        <a class="dialog__item_link" href="#!/dialog/5c76b8b2ca8bf453f64abf66">
-                <span class="dialog__avatar m-user__img_7 m-type_group">
-
-                        <i class="material-icons">supervisor_account</i>
-
-                </span>
-                            <span class="dialog__info">
-                    <span class="dialog__name">lemma, jaila, toe, axis</span>
-                    <span class="dialog__last_message j-dialog__last_message ">tor created new dialog with: lemma, tor, jaila, toe, axis</span>
-                </span>
-                            <span class="dialog_additional_info">
-                    <span class="dialog__last_message_date j-dialog__last_message_date">
-                        00:20
-                    </span>
-                    <span class="dialog_unread_counter j-dialog_unread_counter hidden">
-
-                    </span>
-                </span>
-                        </a>
-                    </li><li class="dialog__item j-dialog__item" id="5c76b8a8ca8bf453f64abf65" data-name="lemma, toe">
-                        <a class="dialog__item_link" href="#!/dialog/5c76b8a8ca8bf453f64abf65">
-                <span class="dialog__avatar m-user__img_8 m-type_group">
-
-                        <i class="material-icons">supervisor_account</i>
-
-                </span>
-                            <span class="dialog__info">
-                    <span class="dialog__name">lemma, toe</span>
-                    <span class="dialog__last_message j-dialog__last_message ">tor created new dialog with: lemma, tor, toe</span>
-                </span>
-                            <span class="dialog_additional_info">
-                    <span class="dialog__last_message_date j-dialog__last_message_date">
-                        00:19
-                    </span>
-                    <span class="dialog_unread_counter j-dialog_unread_counter hidden">
-
-                    </span>
-                </span>
-                        </a>
-                    </li><li class="dialog__item j-dialog__item" id="5c59ca74ca8bf4565b3e65e4" data-name="tor, jaila">
-                        <a class="dialog__item_link" href="#!/dialog/5c59ca74ca8bf4565b3e65e4">
-                <span class="dialog__avatar m-user__img_5 m-type_group">
-
-                        <i class="material-icons">supervisor_account</i>
-
-                </span>
-                            <span class="dialog__info">
-                    <span class="dialog__name">tor, jaila</span>
-                    <span class="dialog__last_message j-dialog__last_message ">Test</span>
-                </span>
-                            <span class="dialog_additional_info">
-                    <span class="dialog__last_message_date j-dialog__last_message_date">
-                        21:52
-                    </span>
-                    <span class="dialog_unread_counter j-dialog_unread_counter hidden">
-
-                    </span>
-                </span>
-                        </a>
-                    </li><li class="dialog__item j-dialog__item" id="5c5aa813ca8bf4565b3e6c59" data-name="lemma, jaila">
-                        <a class="dialog__item_link" href="#!/dialog/5c5aa813ca8bf4565b3e6c59">
-                <span class="dialog__avatar m-user__img_3 m-type_group">
-
-                        <i class="material-icons">supervisor_account</i>
-
-                </span>
-                            <span class="dialog__info">
-                    <span class="dialog__name">lemma, jaila</span>
-                    <span class="dialog__last_message j-dialog__last_message ">hgfd</span>
-                </span>
-                            <span class="dialog_additional_info">
-                    <span class="dialog__last_message_date j-dialog__last_message_date">
-                        05:48
-                    </span>
-                    <span class="dialog_unread_counter j-dialog_unread_counter hidden">
-
-                    </span>
-                </span>
-                        </a>
-                    </li><li class="dialog__item j-dialog__item" id="5c5396adca8bf403743e5d70" data-name="lemma, jaila, toe, axis">
-                        <a class="dialog__item_link" href="#!/dialog/5c5396adca8bf403743e5d70">
-                <span class="dialog__avatar m-user__img_5 m-type_group">
-
-                        <i class="material-icons">supervisor_account</i>
-
-                </span>
-                            <span class="dialog__info">
-                    <span class="dialog__name">lemma, jaila, toe, axis</span>
-                    <span class="dialog__last_message j-dialog__last_message attachment">Attachment</span>
-                </span>
-                            <span class="dialog_additional_info">
-                    <span class="dialog__last_message_date j-dialog__last_message_date">
-                        16:54
-                    </span>
-                    <span class="dialog_unread_counter j-dialog_unread_counter hidden">
-
-                    </span>
-                </span>
-                        </a>
-                    </li><li class="dialog__item j-dialog__item" id="5c01ec33ca8bf468ab8cf4d1" data-name="tor, jaila, toe, axis">
-                        <a class="dialog__item_link" href="#!/dialog/5c01ec33ca8bf468ab8cf4d1">
-                <span class="dialog__avatar m-user__img_8 m-type_group">
-
-                        <i class="material-icons">supervisor_account</i>
-
-                </span>
-                            <span class="dialog__info">
-                    <span class="dialog__name">tor, jaila, toe, axis</span>
-                    <span class="dialog__last_message j-dialog__last_message ">tor left the chat.</span>
-                </span>
-                            <span class="dialog_additional_info">
-                    <span class="dialog__last_message_date j-dialog__last_message_date">
-                        04:23
-                    </span>
-                    <span class="dialog_unread_counter j-dialog_unread_counter hidden">
-
-                    </span>
-                </span>
-                        </a>
-                    </li><li class="dialog__item j-dialog__item" id="5bee9f60ca8bf40f5ede7192" data-name="tor, jaila">
-                        <a class="dialog__item_link" href="#!/dialog/5bee9f60ca8bf40f5ede7192">
-                <span class="dialog__avatar m-user__img_10 m-type_group">
-
-                        <i class="material-icons">supervisor_account</i>
-
-                </span>
-                            <span class="dialog__info">
-                    <span class="dialog__name">tor, jaila</span>
-                    <span class="dialog__last_message j-dialog__last_message ">tor left the chat.</span>
-                </span>
-                            <span class="dialog_additional_info">
-                    <span class="dialog__last_message_date j-dialog__last_message_date">
-                        04:23
-                    </span>
-                    <span class="dialog_unread_counter j-dialog_unread_counter hidden">
-
-                    </span>
-                </span>
-                        </a>
-                    </li><li class="dialog__item j-dialog__item" id="5bdec6baca8bf472ea0a8b16" data-name="tor, jaila">
-                        <a class="dialog__item_link" href="#!/dialog/5bdec6baca8bf472ea0a8b16">
-                <span class="dialog__avatar m-user__img_2 m-type_group">
-
-                        <i class="material-icons">supervisor_account</i>
-
-                </span>
-                            <span class="dialog__info">
-                    <span class="dialog__name">tor, jaila</span>
-                    <span class="dialog__last_message j-dialog__last_message ">tor left the chat.</span>
-                </span>
-                            <span class="dialog_additional_info">
-                    <span class="dialog__last_message_date j-dialog__last_message_date">
-                        04:23
-                    </span>
-                    <span class="dialog_unread_counter j-dialog_unread_counter hidden">
-
-                    </span>
-                </span>
-                        </a>
-                    </li></ul>
                 </div>
             </div>
         </div>
@@ -394,89 +76,94 @@ weqwe</span>
                     <a href="#!/dialog/5ca289caca8bf40e091a8c01/edit" class="add_to_dialog j-add_to_dialog">
                         <i class="material-icons">person_add</i>
                     </a>
-                    <a href="#" class="quit_fom_dialog_link j-quit_fom_dialog_link" data-dialog="5ca289caca8bf40e091a8c01">
+                    <a href="#" class="quit_fom_dialog_link j-quit_fom_dialog_link"
+                       data-dialog="5ca289caca8bf40e091a8c01">
                         <i class="material-icons">delete</i>
                     </a>
                 </div>
             </div>
             <div class="notifications j-notifications hidden"></div>
             <div class="content__inner j-content__inner">
-                <div class="messages j-messages"><div class="message__wrap" id="5ca289cb0141f56330000010">
-                    <p class="m-notification_message">lemma created new dialog with: lemma, tor, jaila, toe, axis</p>
-                </div><div class="message__wrap" id="5ca289d70141f56330000011" data-status="seen">
-            <span class="message__avatar m-user__img_3">
-                <i class="material-icons">account_circle</i>
-            </span>
-                    <div class="message__content">
-                        <div class="message__sender_and_status">
-                            <p class="message__sender_name">lemma</p>
-                            <p class="message__status j-message__status">seen</p>
-                        </div>
-                        <div class="message__text_and_date">
-                            <div class="message__text_wrap">
-
-                                <p class="message__text">Hola bitcholas</p>
-
-
+                <div class="messages j-messages">
+                    <!--<div class="message__wrap" id="5ca289cb0141f56330000010">
+                        <p class="m-notification_message">lemma created new dialog with: lemma, tor, jaila, toe, axis</p>
+                    </div>-->
+                    <div class="message__wrap" id="5ca289d70141f56330000011" data-status="seen">
+                        <span class="message__avatar m-user__img_3">
+                            <i class="material-icons">account_circle</i>
+                        </span>
+                        <div class="message__content">
+                            <div class="message__sender_and_status">
+                                <p class="message__sender_name">lemma</p>
+                                <!--<p class="message__status j-message__status">seen</p>-->
                             </div>
-                            <div class="message__timestamp">
-                                05:59
-                            </div>
-                        </div>
-                    </div>
-                </div><div class="message__wrap" id="5ca28a39a38d34288a00000b" data-status="">
-            <span class="message__avatar m-user__img_8">
-                <i class="material-icons">account_circle</i>
-            </span>
-                    <div class="message__content">
-                        <div class="message__sender_and_status">
-                            <p class="message__sender_name">tor</p>
-                            <p class="message__status j-message__status"></p>
-                        </div>
-                        <div class="message__text_and_date">
-                            <div class="message__text_wrap">
-
-                                <p class="message__text">Foo</p>
-
-
-                            </div>
-                            <div class="message__timestamp">
-                                06:01
+                            <div class="message__text_and_date">
+                                <div class="message__text_wrap">
+                                    <p class="message__text">Hola bitcholas</p>
+                                </div>
+                                <div class="message__timestamp">
+                                    05:59
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div><div class="message__wrap" id="5caeec28a04ed04b0c000003">
-                    <p class="m-notification_message">lemma changed the conversation name to "qingfeng".</p>
-                </div><div class="message__wrap" id="5caeec38a04ed04b0c000004" data-status="seen">
-            <span class="message__avatar m-user__img_3">
-                <i class="material-icons">account_circle</i>
-            </span>
-                    <div class="message__content">
-                        <div class="message__sender_and_status">
-                            <p class="message__sender_name">lemma</p>
-                            <p class="message__status j-message__status">seen</p>
-                        </div>
-                        <div class="message__text_and_date">
-                            <div class="message__text_wrap">
-
-                                <p class="message__text">哈哈哈</p>
-
-
+                    <div class="message__wrap" id="5ca28a39a38d34288a00000b" data-status="">
+                        <span class="message__avatar m-user__img_8">
+                            <i class="material-icons">account_circle</i>
+                        </span>
+                        <div class="message__content">
+                            <div class="message__sender_and_status">
+                                <p class="message__sender_name">tor</p>
+                                <p class="message__status j-message__status"></p>
                             </div>
-                            <div class="message__timestamp">
-                                15:26
+                            <div class="message__text_and_date">
+                                <div class="message__text_wrap">
+                                    <p class="message__text">Foo</p>
+                                </div>
+                                <div class="message__timestamp">
+                                    06:01
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div></div>
+                    <div class="message__wrap" id="5caeec28a04ed04b0c000003">
+                        <p class="m-notification_message">lemma changed the conversation name to "qingfeng".</p>
+                    </div>
+                    <div class="message__wrap" id="5caeec38a04ed04b0c000004" data-status="seen">
+                        <span class="message__avatar m-user__img_3">
+                            <i class="material-icons">account_circle</i>
+                        </span>
+                        <div class="message__content">
+                            <div class="message__sender_and_status">
+                                <p class="message__sender_name">lemma</p>
+                                <p class="message__status j-message__status">seen</p>
+                            </div>
+                            <div class="message__text_and_date">
+                                <div class="message__text_wrap">
+                                    <p class="message__text">哈哈哈</p>
+                                </div>
+                                <div class="message__timestamp">
+                                    15:26
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <form name="send_message" class="send_message" autocomplete="off">
-                    <textarea name="message_feald" class="message_feald" id="message_feald" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Type a message" autofocus=""></textarea>
+                    <div class="abs top pnl-warn" id="pnlWarn">
+                        <div class="fl btns rel pnl-warn-free">
+                            <img src="images/1184880.png" class="kh warn-btn" title="图片" id="emojiBtn"/>
+                        </div>
+                    </div>
+                    <textarea name="message_feald" class="message_feald" id="message_feald" autocomplete="off"
+                              autocorrect="off" autocapitalize="off" placeholder="Type a message" autofocus="">
+                    </textarea>
                     <div class="message__actions">
                         <div class="attachments_preview j-attachments_preview"></div>
-                        <label for="attach_btn" class="attach_btn">
-                            <i class="material-icons">attachment</i>
-                            <input type="file" id="attach_btn" name="attach_file" class="attach_input" accept="image/*">
-                        </label>
+                        <!--<label for="attach_btn" class="attach_btn">-->
+                            <!--<i class="material-icons">attachment</i>-->
+                            <!--<input type="file" id="attach_btn" name="attach_file" class="attach_input" accept="image/*">-->
+                        <!--</label>-->
                         <button class="send_btn">send</button>
                     </div>
                 </form>
@@ -484,31 +171,6 @@ weqwe</span>
         </div>
     </div>
 </div>
-
-<!-- Underscore TEMPLATES  -->
-<script type="text/template" id="tpl_login">
-    <div class="login__wrapper">
-        <div class="login__container">
-            <div class="login__inner">
-                <div class="login__top">
-                    <h1>ConnectyCube Chat Sample</h1>
-                    <h3>Please choose a user you want to login with</h3>
-                    <h3 class="logging-in-label" style="display: none;">Logging in... please wait</h3>
-                </div>
-                <%_.forEach(users, function (u,i) {%>
-                <button name="login_submit" value="<%= u.id %>" class="btn m-login__button j-login__button">
-                    <%= u.login %>
-                </button>
-                <%})%>
-            </div>
-
-            <div class="login__footer">
-                <span class="footer__version">SDK v. <%= version %></span>
-            </div>
-        </div>
-    </div>
-</script>
-
 <script type="text/template" id="tpl_dashboardContainer">
     <div class="dashboard">
         <div class="sidebar j-sidebar active">
@@ -703,9 +365,11 @@ weqwe</span>
         <div class="group_chat__user_list j-group_chat__user_list">
         </div>
         <form action="" name="create_dialog" class="dialog_form m-dialog_form_create j-create_dialog_form">
-            <input class="dialog_name" name="dialog_name" type="text"  autocomplete="off"
+            <input class="dialog_name" name="dialog_name" type="text" autocomplete="off"
                    autocorrect="off" autocapitalize="off" placeholder="Add conversation name" disabled>
-            <button class="btn m-create_dialog_btn j-create_dialog_btn"  type="submit" name="create_dialog_submit" disabled>create</button>
+            <button class="btn m-create_dialog_btn j-create_dialog_btn" type="submit" name="create_dialog_submit"
+                    disabled>create
+            </button>
         </form>
     </div>
 </script>
@@ -726,7 +390,7 @@ weqwe</span>
 
 <script type="text/template" id="tpl_message__typing">
     <div class="message__wrap m-typing j-istyping" id="is__typing">
-        <% _.each(users, function(user){  %>
+        <% _.each(users, function(user){ %>
         <span class="message__avatar <%- typeof user === 'number' ? 'm-typing_unknown m-typing_' + user : 'm-user__img_' + user.color %>">
                     <i class="material-icons">account_circle</i>
                 </span>
@@ -764,14 +428,14 @@ weqwe</span>
     </div>
 </script>
 
-<script src="js/config.js" defer=""></script>
-<script src="js/user.js" defer=""></script>
+<!--<script src="js/config.js" defer=""></script>-->
+<!--<script src="js/user.js" defer=""></script>-->
 <script src="js/dialog.js" defer=""></script>
 <script src="js/message.js" defer=""></script>
 <script src="js/listeners.js" defer=""></script>
 <script src="js/helpers.js" defer=""></script>
-<script src="js/app.js" defer=""></script>
-<script src="js/login.js" defer=""></script>
+<!--<script src="js/app.js" defer=""></script>-->
+<!--<script src="js/login.js" defer=""></script>-->
 <script src="js/route.js" defer=""></script>
 
 
