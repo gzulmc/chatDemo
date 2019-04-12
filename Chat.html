@@ -10,17 +10,18 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/chat.js"></script>
+
 </head>
 <body lang="zh">
 <!--<img style="width:100%;height:100%" src="images/chatBack.jpg">-->
 <div class="abs cover contaniner">
     <div class="abs cover pnl">
-        <div class="top pnl-head"></div>
+        <!--<div class="top pnl-head"></div>-->
         <div class="abs cover pnl-body" id="pnlBody">
-            <div class="abs cover pnl-left ">
+            <div class="abs cover pnl-left" style="width: 300px">
                 <div class="slider-container hide"></div>
                 <div class="pnl-right-content">
+                    <!--搜索框-->
                     <div class="input-group">
                         <div class="input-icon-group">
                             <input type="text" class="form-control fc-clear" placeholder="请输入用户ID搜索"/>
@@ -33,62 +34,62 @@
                             <button class="btn btn-primary" type="button">搜索</button>
                         </span>
                     </div>
-                    <div class="pnl-hot">
-                        <ul class="sidebar__dilog_list" id="hots">
-                            <li class="dialog__item j-dialog__item selected" id="5ca289caca8bf40e091a8c01"
-                                data-name="qingfeng">
-                                <a class="dialog__item_link" href="#!/dialog/5ca289caca8bf40e091a8c01">
-                                    <span class="dialog__avatar m-user__img_10 m-type_group">
-                                        <i class="material-icons">supervisor_account</i>
-                                    </span>
-                                    <span class="dialog__info">
-                                        <span class="dialog__name">用户1</span>
-                                        <span class="dialog__last_message j-dialog__last_message ">哈哈哈</span>
-                                    </span>
-                                    <span class="dialog_additional_info">
-                                        <span class="dialog__last_message_date j-dialog__last_message_date">
-                                            15:26
-                                        </span>
-                                        <!--<span class="dialog_unread_counter j-dialog_unread_counter hidden"></span>-->
-                                        <span class="dialog_unread_counter j-dialog_unread_counter">4</span>
-                                    </span>
-                                </a>
-                            </li>
-
-                            <!-- @{
-                             List<string> list = ViewData["FAQ"] as List<string>;
-                             for(int i = 0;i < list.Count;i++)
-                             {
-                             <li class="rel-item">@list[i]</li>
-                             }
-                             }-->
-                        </ul>
+                    <!--用户列表-->
+                    <div class="pnl-hot" id="user_list">
                     </div>
                 </div>
             </div>
-            <div class="abs right pnl-right">
+
+            <div class="abs right pnl-right" style="width: 600px">
+                <div class="content__title j-content__title j-dialog">
+                    <button class="open_sidebar j-open_sidebar"></button>
+                    <h1 class="dialog__title j-dialog__title">qingfeng</h1>
+                    <div class="action_links">
+                        <a href="/dialog/5ca289caca8bf40e091a8c01/edit" class="add_to_dialog j-add_to_dialog ">
+                            <i class="material-icons">person_add</i>
+                        </a>
+                        <a href="#" class="quit_fom_dialog_link j-quit_fom_dialog_link " data-dialog="5ca289caca8bf40e091a8c01">
+                            <i class="material-icons">delete</i>
+                        </a>
+                    </div>
+                </div>
                 <div class="abs cover pnl-msgs scroll" id="show">
-                    <div class="msg min time" id="histStart">加载历史消息</div>
-                    <div class="pnl-list" id="hists">
-                        <!-- 历史消息 -->
-                    </div>
+                    <div class="msg time" id="histStart">用户1</div>
+                    <!--<div class="pnl-list" id="hists">
+                        &lt;!&ndash; 历史消息 &ndash;&gt;
+                    </div>-->
                     <div class="pnl-list" id="msgs">
-                        <div class="msg robot">
-                            <div class="msg-left" worker="小冰">
+                        <!--<div class="msg">
+                            <div class="msg-left" worker="用户1">
                                 <div class="msg-host photo" style="background-image: url(images/head.png)"></div>
-                                <div class="msg-ball" title="今天 17:52:06">你好，我是机器人小冰<br><br>您是想要了解哪些方面呢？</div>
+                                <div class="msg-ball">
+                                    <div class="message__text_and_date">
+                                        <div class="message__text_wrap">
+                                            <p class="message__text">你好，我是机器人小冰<br>您是想要了解哪些方面呢？</p>
+                                            <p class="message__text">05:59</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="msg guest">
-                            <div class="msg-right">
+                        <div class="msg">
+                            <div class="msg-right" worker="lemma">
                                 <div class="msg-host headDefault" style="background-image: url(images/man.png)"></div>
-                                <div class="msg-ball" title="今天 17:52:06">你好</div>
+                                <div class="msg-ball">
+                                    <div class="message__text_and_date">
+                                        <div class="message__text_wrap">
+                                            <p class="message__sender_name">lemma</p>
+                                            <p class="message__text">你好</p>
+                                            <p class="message__text">05:59</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
-                    <div class="pnl-list hide" id="unreadLine">
+                    <!--<div class="pnl-list hide" id="unreadLine">
                         <div class="msg min time unread">未读消息</div>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="abs bottom pnl-text">
                     <div class="abs top pnl-warn" id="pnlWarn">
@@ -108,9 +109,9 @@
                     <div class="pnl-support" id="copyright"><a href="#"></a></div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
+<script src="js/chat.js"></script>
 </body>
 </html>

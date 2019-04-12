@@ -129,8 +129,8 @@
 .dialog__avatar.m-user__img_10,
 .message__avatar.m-user__img_10,
 .user__avatar.m-user__img_10 {
-    color: #4054B2;
-    background-color: #b3bbe0;
+    /*color: #4054B2;
+    background-color: #b3bbe0;*/
     background-image: url("../images/feman.png");
 }
 

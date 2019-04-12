@@ -3032,7 +3032,8 @@ body.phone .media-container,body.ifr .media-container {
 	background-size:cover
 }
 .contaniner {
-	margin:20px 0 50px
+	/*margin:20px 0 50px*/
+	margin:0px
 }
 .pnl {
 	text-align:left;
