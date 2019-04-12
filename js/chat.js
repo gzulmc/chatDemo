@@ -1,5 +1,4 @@
-﻿////////////////////////////////////////////键盘事件////////////////////////////////
-
+﻿
 // 按Enter键发送信息
 $(document).keydown(function(event){
     if(event.keyCode == 13){
@@ -49,6 +48,7 @@ function initUserList() {
 /*根据用户id获取用户对话记录*/
 function openDialog(id) {
     if (id) {
+        $("#msgs").html("");
         $.ajax({
             type: "get",
             async:false,
@@ -61,6 +61,8 @@ function openDialog(id) {
             },
             success: function (data) {
                 retStr = "";
+                $("#histStart").html(data[0].from_user);
+                $("#" + id).addClass("selected");
                 for (let i = 0; i < data.length; i++) {
                     retStr += "<div class=\"msg\">\n" +
                         "                            <div class=\"msg-left\" worker=\""+data[i].from_user+"\">\n" +
@@ -91,17 +93,17 @@ function openDialog(id) {
                         "                        </div>";
                 }
                 $("#msgs").append(retStr);
+                $("#show")[0].scrollTop = $("#show")[0].scrollHeight;//滚动条滑动最低端
+                $("#" + id).find("span:last").addClass("hidden").innerText("");//设置未读消息为空
             }
         });
     }
 }
 
-/////////////////////////////////////////////前台信息处理/////////////////////////////////////////////////////////
 // 发送信息
-function SendMsg()
-{
+function SendMsg() {
     var text = document.getElementById("text");
-    if (text.value == "" || text.value == null)
+    if (text.value.trim() == "" || text.value == null)
     {
         alert("发送信息为空，请输入！")
     }
@@ -114,38 +116,57 @@ function SendMsg()
     }
 }
 // 发送的信息处理
-function SendMsgDispose(detail)
-{
+function SendMsgDispose(detail) {
     detail = detail.replace("\n", "<br>").replace(" ", "&nbsp;")
     return detail;
 }
 
 // 增加信息
-function AddMsg(user,content)
-{
+function AddMsg(user,content) {
     var str = CreadMsg(user, content);
     var msgs = document.getElementById("msgs");
     msgs.innerHTML = msgs.innerHTML + str;
 }
 
 // 生成内容
-function CreadMsg(user, content)
-{
+function CreadMsg(user, content) {
     var str = "";
     if(user == 'default')
     {
-        str = "<div class=\"msg guest\"><div class=\"msg-right\"><div class=\"msg-host headDefault\"></div><div class=\"msg-ball\" title=\"今天 17:52:06\">" + content +"</div></div></div>"
+        str = "<div class=\"msg\">\n" +
+            "    <div class=\"msg-left\" worker=\"" + user + "\">\n" +
+            "        <div class=\"msg-host photo\" style=\"background-image: url(images/head.png)\"></div>\n" +
+            "        <div class=\"msg-ball\">\n" +
+            "            <div class=\"message__text_and_date\">\n" +
+            "                <div class=\"message__text_wrap\">\n" +
+            "                    <p class=\"message__text\">" + content + "</p>\n" +
+            "                    <p class=\"message__text\">" + new Date().format("yyyy-MM-dd HH:mm:ss") + "</p>\n" +
+            "                </div>\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "    </div>\n" +
+            "</div>";
     }
     else
     {
-        str = "<div class=\"msg robot\"><div class=\"msg-left\" worker=\"" + user + "\"><div class=\"msg-host photo\" style=\"background-images: url(../Images/head.png)\"></div><div class=\"msg-ball\" title=\"今天 17:52:06\">" + content + "</div></div></div>";
+        str = "<div class=\"msg\">\n" +
+            "    <div class=\"msg-left\" worker=\"" + user + "\">\n" +
+            "        <div class=\"msg-host photo\" style=\"background-image: url(images/head.png)\"></div>\n" +
+            "        <div class=\"msg-ball\">\n" +
+            "            <div class=\"message__text_and_date\">\n" +
+            "                <div class=\"message__text_wrap\">\n" +
+            "                    <p class=\"message__text\">" + content + "</p>\n" +
+            "                    <p class=\"message__text\">" + new Date().format("yyyy-MM-dd HH:mm:ss") + "</p>\n" +
+            "                </div>\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "    </div>\n" +
+            "</div>";
     }
     return str;
 }
 
 
-
-/////////////////////////////////////////////////////////////////////// 后台信息处理 /////////////////////////////////////////////////////////////////////////////////
 
 // 发送
 function AjaxSendMsg(_content)
