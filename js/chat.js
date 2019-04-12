@@ -26,7 +26,7 @@ function initUserList() {
             retStr = "<ul class=\"sidebar__dilog_list\" id=\"hots\">";
             for (let i = 0; i < data.length; i++) {
                 retStr += "    <li class=\"dialog__item j-dialog__item \" id=\""+data[i].id+"\">\n" +
-                    "        <a class=\"dialog__item_link\" href=\"dialog/"+data[i].id+"\" style='text-decoration: none'>\n" +
+                    "        <a class=\"dialog__item_link\" onclick='openDialog("+data[i].id+")' href=\"javascript:void(0);\" style='text-decoration: none'>\n" +
                     "            <span class=\"dialog__info\">\n" +
                     "                <span class=\"dialog__name\">"+data[i].user_name+"</span>\n" +
                     "                <span class=\"dialog__last_message j-dialog__last_message \">"+data[i].last_message+"</span>\n" +

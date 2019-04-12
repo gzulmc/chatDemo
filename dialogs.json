@@ -1,0 +1,23 @@
+[
+  {
+    "from_user": "uc52641809",
+    "question": "你好，我是机器人小冰<br>您是想要了解哪些方面呢？",
+    "answer": "你可以点击<a href=\"http://www.ums95534.com/KFTOOLS/operation/operIndex.html\">POS机操作手册</a>进行查询。",
+    "create_time": "2018-11-19 17:07:40",
+    "receive_user": "ucstar"
+  },
+  {
+    "from_user": "uc52641809",
+    "question": "传统POS操作方法",
+    "answer": "您的问题属于以下哪种情况：(1)传统POS操作方法(2)智能POS操作方法",
+    "create_time": "2018-11-19 18:07:40",
+    "receive_user": "ucstar"
+  },
+  {
+    "from_user": "uc52641809",
+    "question": "怎么操作结算",
+    "answer": "<div><b>按键POS机结算方法</b>：您可选择【确认】-【管理】-【结算】进行POS机结算，但结算后不可以再做消费撤销。</div><div><b>触屏POS机结算方法</b>：您可通过【我的支付】-【换班】功能打印交易汇总清单和查询交易明细，但换班后不可以再做消费撤销。</div>",
+    "create_time": "2018-11-19 19:07:40",
+    "receive_user": "ucstar"
+  }
+]
