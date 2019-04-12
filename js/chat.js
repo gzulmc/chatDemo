@@ -94,25 +94,35 @@ function openDialog(id) {
                 }
                 $("#msgs").append(retStr);
                 $("#show")[0].scrollTop = $("#show")[0].scrollHeight;//滚动条滑动最低端
-                $("#" + id).find("span:last").addClass("hidden").innerText("");//设置未读消息为空
+                $("#" + id).find("span:last").addClass("hidden").html("");//设置未读消息为空
             }
         });
     }
 }
+function getFormatDate(){
+    var nowDate = new Date();
+    var year = nowDate.getFullYear();
+    var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;
+    var date = nowDate.getDate() < 10 ? "0" + nowDate.getDate() : nowDate.getDate();
+    var hour = nowDate.getHours()< 10 ? "0" + nowDate.getHours() : nowDate.getHours();
+    var minute = nowDate.getMinutes()< 10 ? "0" + nowDate.getMinutes() : nowDate.getMinutes();
+    var second = nowDate.getSeconds()< 10 ? "0" + nowDate.getSeconds() : nowDate.getSeconds();
+    return year + "-" + month + "-" + date+" "+hour+":"+minute+":"+second;
+}
 
 // 发送信息
 function SendMsg() {
-    var text = document.getElementById("text");
-    if (text.value.trim() == "" || text.value == null)
+    var text = $("#text").val();
+    if (!text)
     {
         alert("发送信息为空，请输入！")
     }
     else
     {
-        AddMsg('default', SendMsgDispose(text.value));
-        var retMsg = AjaxSendMsg(text.value)
-        AddMsg('小冰', retMsg);
-        text.value = "";
+        /*AddMsg('default', SendMsgDispose(text));*/
+        var retMsg = AjaxSendMsg(text)//发送后台存储用户问题(text)和答案(retMsg)
+        AddMsg('坐席', retMsg);
+        $("#text").val("");
     }
 }
 // 发送的信息处理
@@ -130,7 +140,7 @@ function AddMsg(user,content) {
 
 // 生成内容
 function CreadMsg(user, content) {
-    var str = "";
+    /*var str = "";
     if(user == 'default')
     {
         str = "<div class=\"msg\">\n" +
@@ -140,7 +150,7 @@ function CreadMsg(user, content) {
             "            <div class=\"message__text_and_date\">\n" +
             "                <div class=\"message__text_wrap\">\n" +
             "                    <p class=\"message__text\">" + content + "</p>\n" +
-            "                    <p class=\"message__text\">" + new Date().format("yyyy-MM-dd HH:mm:ss") + "</p>\n" +
+            "                    <p class=\"message__text\">" + getFormatDate() + "</p>\n" +
             "                </div>\n" +
             "            </div>\n" +
             "        </div>\n" +
@@ -156,19 +166,48 @@ function CreadMsg(user, content) {
             "            <div class=\"message__text_and_date\">\n" +
             "                <div class=\"message__text_wrap\">\n" +
             "                    <p class=\"message__text\">" + content + "</p>\n" +
-            "                    <p class=\"message__text\">" + new Date().format("yyyy-MM-dd HH:mm:ss") + "</p>\n" +
+            "                    <p class=\"message__text\">" + getFormatDate() + "</p>\n" +
+            "                </div>\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "    </div>\n" +
+            "</div>";
+    }*/
+    if (user=="de") {
+        return "<div class=\"msg\">\n" +
+        "    <div class=\"msg-left\" worker=\"" + user + "\">\n" +
+        "        <div class=\"msg-host photo\" style=\"background-image: url(images/head.png)\"></div>\n" +
+        "        <div class=\"msg-ball\">\n" +
+        "            <div class=\"message__text_and_date\">\n" +
+        "                <div class=\"message__text_wrap\">\n" +
+        "                    <p class=\"message__text\">" + content + "</p>\n" +
+        "                    <p class=\"message__text\">" + getFormatDate() + "</p>\n" +
+        "                </div>\n" +
+        "            </div>\n" +
+        "        </div>\n" +
+        "    </div>\n" +
+        "</div>";
+    } else{
+          return  "<div class=\"msg\">\n" +
+            "    <div class=\"msg-right\" worker=\"lemma\">\n" +
+            "        <div class=\"msg-host headDefault\" style=\"background-image: url(images/man.png)\"></div>\n" +
+            "        <div class=\"msg-ball\">\n" +
+            "            <div class=\"message__text_and_date\">\n" +
+            "                <div class=\"message__text_wrap\">\n" +
+            "                    <p class=\"message__sender_name\">"+data[i].receive_user+"</p>\n" +
+            "                    <p class=\"message__text\">"+data[i].answer+"</p>\n" +
+            "                    <p class=\"message__text\">"+data[i].create_time+"</p>\n" +
             "                </div>\n" +
             "            </div>\n" +
             "        </div>\n" +
             "    </div>\n" +
             "</div>";
     }
-    return str;
 }
 
 
 
-// 发送
+// 发送后台处理
 function AjaxSendMsg(_content)
 {
     var retStr = "";
