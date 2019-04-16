@@ -22,13 +22,13 @@ function initUserList() {
             $("#user_list").html("");
         },
         success: function (data) {
-            retStr = "<ul class=\"sidebar__dilog_list\" id=\"hots\">";
+            retStr = "<ul class=\"sidebar__dilog_list\" style='height: 557px' id=\"hots\" >";
             for (let i = 0; i < data.length; i++) {
                 retStr += "    <li class=\"dialog__item j-dialog__item \" id=\""+data[i].id+"\">\n" +
                     "        <a class=\"dialog__item_link\" onclick='openDialog("+data[i].id+")' href=\"javascript:void(0);\" style='text-decoration: none'>\n" +
                     "            <span class=\"dialog__info\">\n" +
                     "                <span class=\"dialog__name\">"+data[i].user_name+"</span>\n" +
-                    "                <span class=\"dialog__last_message j-dialog__last_message \">"+data[i].last_message+"</span>\n" +
+                    "                <span class=\"dialog__last_message j-dialog__last_message \">"+data[i].user_id+"</span>\n" +
                     "            </span>\n" +
                     "            <span class=\"dialog_additional_info\">\n" +
                     "                <span class=\"dialog__last_message_date j-dialog__last_message_date\">\n" +
@@ -40,6 +40,13 @@ function initUserList() {
                     "    </li>";
             }
             retStr += "</ul>";
+            retStr += "<div style=\"bottom: 0px; height: 30px; line-height: 30px; width: 100%; background-color: #eceeed\">\n" +
+                "                        <a href=\"javascript:void(0)\" onclick=\"beforePage()\">上一页</a>\n" +
+                "                        <a href=\"javascript:void(0)\" id=\"nextPage\">下一页</a> 转到\n" +
+                "                        <input type=\"text\" id=\"jumpPage\" style=\"width: 60px;height: 20px\"> 页\n" +
+                "                        <a href=\"javascript:void(0)\" id=\"jumpAction\">GO</a>\n" +
+                "                        <a id=\"currentPage\" style=\"margin-left: 10px\">1</a>/<a id=\"totalPages\">5073</a>\n" +
+                "                    </div>";
             $("#user_list").append(retStr);
         }
     });
@@ -65,32 +72,32 @@ function openDialog(id) {
                 $("#" + id).addClass("selected");
                 for (let i = 0; i < data.length; i++) {
                     retStr += "<div class=\"msg\">\n" +
-                        "                            <div class=\"msg-left\" worker=\""+data[i].from_user+"\">\n" +
-                        "                                <div class=\"msg-host photo\" style=\"background-image: url(images/head.png)\"></div>\n" +
-                        "                                <div class=\"msg-ball\">\n" +
-                        "                                    <div class=\"message__text_and_date\">\n" +
-                        "                                        <div class=\"message__text_wrap\">\n" +
-                        "                                            <p class=\"message__text\">"+data[i].question+"</p>\n" +
-                        "                                            <p class=\"message__text\">"+data[i].create_time+"</p>\n" +
-                        "                                        </div>\n" +
-                        "                                    </div>\n" +
-                        "                                </div>\n" +
-                        "                            </div>\n" +
-                        "                        </div>\n" +
-                        "                        <div class=\"msg\">\n" +
-                        "                            <div class=\"msg-right\" worker=\"lemma\">\n" +
-                        "                                <div class=\"msg-host headDefault\" style=\"background-image: url(images/man.png)\"></div>\n" +
-                        "                                <div class=\"msg-ball\">\n" +
-                        "                                    <div class=\"message__text_and_date\">\n" +
-                        "                                        <div class=\"message__text_wrap\">\n" +
-                        "                                            <p class=\"message__sender_name\">"+data[i].receive_user+"</p>\n" +
-                        "                                            <p class=\"message__text\">"+data[i].answer+"</p>\n" +
-                        "                                            <p class=\"message__text\">"+data[i].create_time+"</p>\n" +
-                        "                                        </div>\n" +
-                        "                                    </div>\n" +
-                        "                                </div>\n" +
-                        "                            </div>\n" +
-                        "                        </div>";
+                        "    <div class=\"msg-left\" worker=\""+data[i].from_user+"\">\n" +
+                        "        <div class=\"msg-host photo\" style=\"background-image: url(images/head.png)\"></div>\n" +
+                        "        <div class=\"msg-ball\">\n" +
+                        "            <div class=\"message__text_and_date\">\n" +
+                        "                <div class=\"message__text_wrap\">\n" +
+                        "                    <p class=\"message__text\">"+data[i].question+"</p>\n" +
+                        "                    <p class=\"message__text\">"+data[i].create_time+"</p>\n" +
+                        "                </div>\n" +
+                        "            </div>\n" +
+                        "        </div>\n" +
+                        "    </div>\n" +
+                        "</div>\n" +
+                        "<div class=\"msg\">\n" +
+                        "    <div class=\"msg-right\" worker=\"lemma\">\n" +
+                        "        <div class=\"msg-host headDefault\" style=\"background-image: url(images/man.png)\"></div>\n" +
+                        "        <div class=\"msg-ball\">\n" +
+                        "            <div class=\"message__text_and_date\">\n" +
+                        "                <div class=\"message__text_wrap\">\n" +
+                        "                    <p class=\"message__sender_name\">"+data[i].receive_user+"</p>\n" +
+                        "                    <p class=\"message__text\">"+data[i].answer+"</p>\n" +
+                        "                    <p class=\"message__text\">"+data[i].create_time+"</p>\n" +
+                        "                </div>\n" +
+                        "            </div>\n" +
+                        "        </div>\n" +
+                        "    </div>\n" +
+                        "</div>";
                 }
                 $("#msgs").append(retStr);
                 $("#show")[0].scrollTop = $("#show")[0].scrollHeight;//滚动条滑动最低端

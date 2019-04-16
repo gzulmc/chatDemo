@@ -2,14 +2,14 @@
   {
     "id": "1231232131",
     "user_name": "用户1",
-    "last_message": "哈哈哈",
+    "user_id": "哈哈哈",
     "last_message_date": "2019.4.1 15:26",
     "unread_counter": 4
   },
   {
     "id": "1231asdasd31",
     "user_name": "用户2",
-    "last_message": "今天天气怎么样",
+    "user_id": "今天天气怎么样",
     "last_message_date": "2019.4.1 11:26",
     "unread_counter": 14
   }

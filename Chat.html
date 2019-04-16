@@ -3,14 +3,10 @@
     <meta charset="utf-8">
     <title>会话记录</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="css/chat.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/dashboard.css">
-    <link rel="stylesheet" href="css/dialogs.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/jquery-1.10.2.js"></script>
 
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/dialogs.css">
+    <link rel="stylesheet" href="css/chat.css">
 </head>
 <body lang="zh">
 <!--<img style="width:100%;height:100%" src="images/chatBack.jpg">-->
@@ -20,7 +16,7 @@
         <div class="abs cover pnl-body" id="pnlBody">
             <div class="abs cover pnl-left" style="width: 300px">
                 <div class="slider-container hide"></div>
-                <div class="pnl-right-content">
+                <div class="pnl-left">
                     <!--搜索框-->
                     <div class="input-group">
                         <div class="input-icon-group">
@@ -31,15 +27,21 @@
                             </span>
                         </div>
                         <span class="input-group-btn">
-                            <button class="btn btn-primary" type="button">搜索</button>
+                            <button class="btn-primary" type="button" style="height: 34px">搜索</button>
                         </span>
                     </div>
                     <!--用户列表-->
-                    <div class="pnl-hot" id="user_list">
+                    <div class="pnl-hot" id="user_list" style="height: 600px">
                     </div>
+                    <!--<div style="bottom: 0px; height: 30px; line-height: 30px; width: 100%; background-color: #eceeed" class="pnl-hot">
+                        <a href="javascript:void(0)" onclick="beforePage()">上一页</a>
+                        <a href="javascript:void(0)" id="nextPage">下一页</a>转到
+                        <input type="text" id="jumpPage" style="width: 60px;height: 20px">页
+                        <a href="javascript:void(0)" id="jumpAction">GO</a>
+                        <a id="currentPage" style="margin-left: 10px">1</a>/<a id="totalPages">5073</a>
+                    </div>-->
                 </div>
             </div>
-
             <div class="abs right pnl-right" style="width: 600px">
                 <div class="content__title j-content__title j-dialog">
                     <button class="open_sidebar j-open_sidebar"></button>
@@ -48,48 +50,16 @@
                         <a href="/dialog/5ca289caca8bf40e091a8c01/edit" class="add_to_dialog j-add_to_dialog ">
                             <i class="material-icons">person_add</i>
                         </a>
-                        <a href="#" class="quit_fom_dialog_link j-quit_fom_dialog_link " data-dialog="5ca289caca8bf40e091a8c01">
+                        <a href="#" class="quit_fom_dialog_link j-quit_fom_dialog_link "
+                           data-dialog="5ca289caca8bf40e091a8c01">
                             <i class="material-icons">delete</i>
                         </a>
                     </div>
                 </div>
                 <div class="abs cover pnl-msgs scroll" id="show">
                     <div class="msg time" id="histStart"></div>
-                    <!--<div class="pnl-list" id="hists">
-                        &lt;!&ndash; 历史消息 &ndash;&gt;
-                    </div>-->
                     <div class="pnl-list" id="msgs">
-                        <!--<div class="msg">
-                            <div class="msg-left" worker="用户1">
-                                <div class="msg-host photo" style="background-image: url(images/head.png)"></div>
-                                <div class="msg-ball">
-                                    <div class="message__text_and_date">
-                                        <div class="message__text_wrap">
-                                            <p class="message__text">你好，我是机器人小冰<br>您是想要了解哪些方面呢？</p>
-                                            <p class="message__text">05:59</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="msg">
-                            <div class="msg-right" worker="lemma">
-                                <div class="msg-host headDefault" style="background-image: url(images/man.png)"></div>
-                                <div class="msg-ball">
-                                    <div class="message__text_and_date">
-                                        <div class="message__text_wrap">
-                                            <p class="message__sender_name">lemma</p>
-                                            <p class="message__text">你好</p>
-                                            <p class="message__text">05:59</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
                     </div>
-                    <!--<div class="pnl-list hide" id="unreadLine">
-                        <div class="msg min time unread">未读消息</div>
-                    </div>-->
                 </div>
                 <div class="abs bottom pnl-text">
                     <div class="abs top pnl-warn" id="pnlWarn">
@@ -112,6 +82,96 @@
         </div>
     </div>
 </div>
+
+<!--<div class="outer-container">
+    <div class="inner-container">
+        <div class="inner-panel">
+            <div class="panel-left">
+                <div class="panel-top">
+                    &lt;!&ndash;搜索框&ndash;&gt;
+                    <div class="input-group">
+                        <div class="input-icon-group">
+                            <input type="text" class="form-control fc-clear" placeholder="请输入用户ID搜索"/>
+                            <span id="scan" data-role="md"
+                                  class="md md-center-focus-weak fa-lg input-icon input-icon-md"
+                                  style="display: inline;">
+                            </span>
+                        </div>
+                        <span class="input-group-btn">
+                            <button class="btn-primary" type="button" style="height: 34px">搜索</button>
+                        </span>
+                    </div>
+                </div>
+                <div class="panel-middle">
+                    &lt;!&ndash;用户列表&ndash;&gt;
+                    <div class="pnl-hot" id="user_list">
+                    </div>
+                </div>
+                <div class="panel-bottom">
+                    <div style="position: absolute;bottom: 0px; height: 30px; line-height: 30px; width: 100%; background-color: #eceeed" class="pnl-hot">
+                        <a href="javascript:void(0)" onclick="beforePage()">上一页</a>
+                        <a href="javascript:void(0)" id="nextPage">下一页</a>转到
+                        <input type="text" id="jumpPage" style="width: 60px;height: 20px">页
+                        <a href="javascript:void(0)" id="jumpAction">GO</a>
+                        <a id="currentPage" style="margin-left: 10px">1</a>/<a id="totalPages">5073</a>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-right">
+                <div class="abs right pnl-right" style="width: 600px">
+                    <div class="content__title j-content__title j-dialog">
+                        <button class="open_sidebar j-open_sidebar"></button>
+                        <h1 class="dialog__title j-dialog__title">qingfeng</h1>
+                        <div class="action_links">
+                            <a href="/dialog/5ca289caca8bf40e091a8c01/edit" class="add_to_dialog j-add_to_dialog ">
+                                <i class="material-icons">person_add</i>
+                            </a>
+                            <a href="#" class="quit_fom_dialog_link j-quit_fom_dialog_link "
+                               data-dialog="5ca289caca8bf40e091a8c01">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="abs cover pnl-msgs scroll" id="show">
+                        <div class="msg time" id="histStart"></div>
+                        <div class="pnl-list" id="msgs">
+                        </div>
+                    </div>
+                    <div class="abs bottom pnl-text">
+                        <div class="abs top pnl-warn" id="pnlWarn">
+                            <div class="fl btns rel pnl-warn-free">
+                                <img src="images/1184880.png" class="kh warn-btn" title="图片" id="emojiBtn"/>
+                            </div>
+                        </div>
+                        <div class="abs cover pnl-input">
+                            <textarea class="scroll" id="text" wrap="hard" placeholder="在此输入文字信息..."></textarea>
+                            <div class="abs atcom-pnl scroll hide" id="atcomPnl">
+                                <ul class="atcom" id="atcom"></ul>
+                            </div>
+                        </div>
+                        <div class="abs br pnl-btn" id="submit"
+                             style="background-color: rgb(32, 196, 202); color: rgb(255, 255, 255);" onclick="SendMsg()">发送
+                        </div>
+                        <div class="pnl-support" id="copyright"><a href="#"></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/jq-paginator.js"></script>
 <script src="js/chat.js"></script>
+<!--<script>
+    $('#demo1').jqPaginator({
+        totalPages: 100,
+        visiblePages: 10,
+        currentPage: 1,
+        onPageChange: function (num, type) {
+            $('#text').html('当前第' + num + '页');
+        }
+    });
+</script>-->
 </body>
 </html>
