@@ -1,4 +1,4 @@
-﻿@charset "utf-8";
+@charset "utf-8";
 	html {
 	font-size:small;
 	height:100%
@@ -1782,7 +1782,7 @@ body {
 }
 .pnl-head {
 	height:5em;
-	background-color: #394b38;
+	background-color:#484a4b;
 	-webkit-box-shadow:0 3px 10px -1px rgba(123,121,129,0.2);
 	box-shadow:0 3px 10px -1px rgba(123,121,129,0.2);
 }
@@ -2179,7 +2179,6 @@ body {
 	bottom:0;
 	left:0
 }
-
 .pnl-tabs {
 	height:3em;
 	padding-left:1em;
@@ -2577,7 +2576,7 @@ a {
 	position:absolute;
 	top:3em;
 	right:0;
-	/*bottom:0;*/
+	bottom:0;
 	left:0;
 	margin-top:1px;
 	background-color:#fff;
@@ -4259,58 +4258,3 @@ body[lang='tw'] #humanBtn::after {
     border-radius:5px;
     /*background-image: url(../Images/head.png);*/
 }
-
-/*body, html {
-	width: 100%;
-	height: 100%;
-}
-.outer-container {
-	position: fixed;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	background: #FFFFFF;
-	text-align: center;
-}
-.outer-container:after {
-	content: '';
-	display: inline-block;
-	height: 100%;
-	vertical-align: middle;
-}
-.inner-container {
-	display: inline-block;
-	vertical-align: middle;
-	background: #EEEEEE;
-}
-.inner-panel {
-	height: 600px;
-	width: 600px;
-}
-.panel-left {
-	float: left;
-	width: 20%;
-	background: #ff0000;
-	height: 100%;
-	position: relative;
-}
-.panel-right {
-	overflow: hidden;
-	height: 100%;
-
-}
-.panel-top {
-	height: 100px;
-}
-.panel-middle {
-	height: calc(100% - 140px);
-	background: gray;
-}
-.panel-bottom {
-	height: 40px;
-	background: #ffFF00;
-	position: absolute;
-	bottom: 0px;
-	width: 100%;
-}*/
